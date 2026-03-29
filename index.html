@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Regal Garbage Dump | Jamaica, NY — Open 24/7</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0A1628;
+      --navy-mid: #112244;
+      --navy-light: #1A3260;
+      --gold: #C9A84C;
+      --gold-bright: #E8C56A;
+      --gold-dark: #9A7A30;
+      --gold-pale: #F5EDD6;
+      --white: #FFFFFF;
+      --off-white: #F8F6F0;
+      --gray: #7A8299;
+      --light-border: rgba(201,168,76,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--off-white);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── CROWN TOPBAR ── */
+    .topbar {
+      background: var(--gold);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 9px 40px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .topbar a { color: var(--navy); text-decoration: none; font-weight: 700; }
+    .topbar .sep { opacity: 0.4; }
+    .topbar .badge {
+      background: var(--navy);
+      color: var(--gold);
+      padding: 3px 14px;
+      border-radius: 2px;
+      letter-spacing: 0.15em;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border-bottom: 1px solid var(--light-border);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      padding: 16px 0;
+    }
+    .nav-crest {
+      width: 42px;
+      height: 42px;
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transform: rotate(45deg);
+    }
+    .nav-crest-inner { transform: rotate(-45deg); }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+    .nav-logo-sub {
+      font-size: 0.65rem;
+      color: rgba(201,168,76,0.55);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      padding: 9px 16px;
+      border: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); border-color: var(--light-border); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--navy) !important;
+      font-weight: 700 !important;
+      border-color: var(--gold) !important;
+      margin-left: 8px;
+    }
+    .nav-cta:hover { background: var(--gold-bright) !important; border-color: var(--gold-bright) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+    }
+    /* Ornamental background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 80% at 60% 50%, rgba(26,50,96,0.6) 0%, transparent 70%),
+        linear-gradient(160deg, var(--navy) 40%, var(--navy-light) 100%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.045;
+      background-image:
+        repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
+        repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+      background-size: 28px 28px;
+    }
+    /* Gold arc accent */
+    .hero-arc {
+      position: absolute;
+      right: -180px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      border: 80px solid rgba(201,168,76,0.06);
+    }
+    .hero-arc2 {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.12);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 100px 56px 80px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-ornament {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: riseIn 0.6s ease both;
+    }
+    .hero-ornament::before, .hero-ornament::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 40px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .hero-ornament::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      animation: riseIn 0.65s 0.1s ease both;
+    }
+    .hero h1 .gold { color: var(--gold); }
+    .hero h1 .thin {
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      display: block;
+      font-size: 0.55em;
+      letter-spacing: 0.2em;
+      margin-bottom: 6px;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      animation: riseIn 0.65s 0.2s ease both;
+    }
+    .hero-divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .hero-divider-diamond {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 520px;
+      animation: riseIn 0.65s 0.25s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      animation: riseIn 0.65s 0.35s ease both;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 15px 36px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--gold);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-gold:hover { background: var(--gold-bright); border-color: var(--gold-bright); transform: translateY(-2px); }
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold);
+      padding: 15px 36px;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(201,168,76,0.5);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline-gold:hover { border-color: var(--gold); background: rgba(201,168,76,0.07); }
+
+    /* Info card */
+    .hero-info-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--light-border);
+      padding: 34px 28px;
+      animation: riseIn 0.7s 0.45s ease both;
+      position: relative;
+    }
+    .hero-info-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .info-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .info-label::after { content: ''; flex: 1; height: 1px; background: var(--light-border); }
+    .info-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+    .info-icon {
+      color: var(--gold);
+      font-size: 1rem;
+      min-width: 20px;
+      padding-top: 2px;
+    }
+    .info-row strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: rgba(201,168,76,0.6);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .info-row span { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .info-row a { color: var(--gold-bright); text-decoration: none; font-weight: 700; font-size: 1.05rem; }
+    .info-row a:hover { color: var(--white); }
+    .open-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 10px 16px;
+      margin-top: 22px;
+    }
+    .open-dot {
+      width: 8px; height: 8px;
+      background: #4CAF50;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    .open-badge span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      color: rgba(201,168,76,0.5);
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollDrop 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── SECTION SHARED ── */
+    .section { padding: 100px 56px; }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .section-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .section-tag::before { content: '◆'; font-size: 0.5rem; }
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.9rem);
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .gold-rule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0 0;
+    }
+    .gold-rule-line { flex: 1; height: 1px; background: var(--light-border); max-width: 80px; }
+    .gold-rule-dia { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--off-white); }
+    .services-head {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .services-head .section-tag { justify-content: center; }
+    .services-head .gold-rule { justify-content: center; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--gold-dark);
+    }
+    .svc-card {
+      background: var(--white);
+      padding: 42px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s;
+    }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-card:hover { background: var(--gold-pale); }
+    .svc-bg-num {
+      position: absolute;
+      top: 10px; right: 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: var(--off-white);
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    .svc-card:hover .svc-bg-num { color: rgba(201,168,76,0.12); }
+    .svc-icon { font-size: 2rem; margin-bottom: 18px; display: block; }
+    .svc-card h3 {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .svc-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
+
+    /* ── 24/7 BAND ── */
+    .band-247 {
+      background: var(--navy);
+      padding: 0 56px;
+      border-top: 1px solid var(--light-border);
+      border-bottom: 1px solid var(--light-border);
+    }
+    .band-247-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 70px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .band-247-left h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1;
+    }
+    .band-247-left h2 span { color: var(--gold); }
+    .band-247-left p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.95rem;
+      margin-top: 12px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+    }
+    .band-247-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+    }
+    .band-phone {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .band-phone:hover { color: var(--gold-bright); }
+    .band-phone-icon {
+      width: 52px; height: 52px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .band-note {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.45);
+      text-transform: uppercase;
+    }
+
+    /* ── WHY REGAL ── */
+    .why-section { background: var(--navy); }
+    .why-section h2 { color: var(--white); }
+    .why-section .section-tag { color: var(--gold-bright); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-top: 50px;
+    }
+    .why-list { display: flex; flex-direction: column; gap: 0; }
+    .why-item {
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .why-item:first-child { padding-top: 0; }
+    .why-item:last-child { border-bottom: none; }
+    .why-num {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: rgba(201,168,76,0.2);
+      min-width: 36px;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .why-item h4 {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .why-item p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
+
+    .why-feature-box {
+      background: rgba(201,168,76,0.05);
+      border: 1px solid var(--light-border);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-feature-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .why-feature-box::after {
+      content: '♛';
+      position: absolute;
+      bottom: -10px; right: 20px;
+      font-size: 9rem;
+      color: rgba(201,168,76,0.04);
+      line-height: 1;
+    }
+    .why-feature-box h3 {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--gold);
+      line-height: 1.2;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .why-feature-box p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .feature-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .feat-stat {
+      text-align: center;
+      padding: 18px 12px;
+      border: 1px solid var(--light-border);
+    }
+    .feat-stat strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .feat-stat span {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: 'Cinzel', serif;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* ── AREA ── */
+    .area-section { background: var(--off-white); }
+    .area-head { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; margin-bottom: 50px; }
+    .area-head p { font-size: 0.92rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .area-tag {
+      padding: 9px 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid rgba(10,22,40,0.15);
+      color: var(--navy);
+      background: white;
+      cursor: default;
+      transition: all 0.2s;
+    }
+    .area-tag:hover { background: var(--navy); color: var(--gold); border-color: var(--navy); }
+    .area-tag.primary { background: var(--navy); color: var(--gold); border-color: var(--navy); }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--navy); }
+    .contact-section h2 { color: var(--white); }
+    .contact-section .section-tag { color: var(--gold); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .contact-panel {
+      border: 1px solid var(--light-border);
+      padding: 40px 36px;
+      position: relative;
+    }
+    .contact-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .contact-panel h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-panel h3::after { content: ''; flex: 1; height: 1px; background: var(--light-border); }
+    .c-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .c-icon {
+      color: var(--gold);
+      font-size: 1.1rem;
+      min-width: 22px;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+    .c-item strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: rgba(201,168,76,0.5);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .c-item a { color: var(--gold-bright); text-decoration: none; font-size: 1.1rem; font-weight: 700; }
+    .c-item a:hover { color: var(--white); }
+    .c-item span { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+    /* Hours table */
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td {
+      padding: 10px 4px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+    }
+    .hours-table td:first-child {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      width: 120px;
+    }
+    .hours-table td.open-time {
+      color: var(--gold);
+      font-weight: 700;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+    .hours-always {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid var(--light-border);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .hours-always-icon { font-size: 1.5rem; }
+    .hours-always strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .hours-always span { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+    /* ── FOOTER ── */
+    .footer-ornament {
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--gold), var(--gold-dark), var(--navy));
+    }
+    footer {
+      background: #060E1C;
+      padding: 32px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    footer a { color: rgba(201,168,76,0.4); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav, .section, .band-247, footer { padding-left: 24px; padding-right: 24px; }
+      .hero-content { grid-template-columns: 1fr; padding: 80px 24px 60px; }
+      .hero-info-card { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .area-head { grid-template-columns: 1fr; }
+      .band-247-inner { flex-direction: column; align-items: flex-start; }
+      .band-247-right { align-items: flex-start; }
+      footer { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; gap: 6px; font-size: 0.65rem; }
+      .feature-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span class="badge">♛ Open 24 Hours · 7 Days a Week</span>
+  <span class="sep">·</span>
+  <span>170-50 Douglas Ave, Jamaica, NY 11433</span>
+  <span class="sep">·</span>
+  <a href="tel:7185239330">(718) 523-9330</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-crest"><span class="nav-crest-inner">♛</span></div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Regal Garbage Dump</span>
+      <span class="nav-logo-sub">Jamaica, New York</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Regal</a></li>
+    <li><a href="#areas">Coverage</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:7185239330" class="nav-cta">Call (718) 523-9330</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-arc"></div>
+  <div class="hero-arc2"></div>
+  <div class="hero-content">
+    <div class="hero-left" style="display:flex;flex-direction:column;gap:24px;">
+      <div class="hero-ornament">Jamaica, Queens · Est. in Service</div>
+      <h1>
+        <span class="thin">The Standard of</span>
+        <span class="gold">REGAL</span><br>GARBAGE<br>DUMP
+      </h1>
+      <div class="hero-divider">
+        <div class="hero-divider-line"></div>
+        <div class="hero-divider-diamond"></div>
+        <div class="hero-divider-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+      </div>
+      <p class="hero-desc">Jamaica's premier waste disposal facility — accepting residential, commercial, and industrial materials around the clock. No appointment necessary. No waiting. Open every hour of every day.</p>
+      <div class="hero-ctas">
+        <a href="tel:7185239330" class="btn-gold">♛ Call (718) 523-9330</a>
+        <a href="#services" class="btn-outline-gold">View Services ↓</a>
+      </div>
+    </div>
+    <div class="hero-info-card">
+      <div class="info-label">Location & Hours</div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <strong>Telephone</strong>
+          <a href="tel:7185239330">(718) 523-9330</a>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <strong>Address</strong>
+          <span>170-50 Douglas Ave<br>Jamaica, NY 11433</span>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🕐</div>
+        <div>
+          <strong>Hours</strong>
+          <span>Open 24 Hours a Day<br>7 Days a Week</span>
+        </div>
+      </div>
+      <div class="open-badge">
+        <div class="open-dot"></div>
+        <span>Open Right Now — No Appointment Needed</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Discover</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div class="section-tag">Our Services</div>
+      <h2>What We Accept</h2>
+      <div class="gold-rule">
+        <div class="gold-rule-line"></div>
+        <div class="gold-rule-dia"></div>
+        <div class="gold-rule-line"></div>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <span class="svc-bg-num">01</span>
+        <span class="svc-icon">🏠</span>
+        <h3>Residential Waste</h3>
+        <p>Household trash, furniture, appliances, and everyday waste from Queens homes and apartments — accepted any time, day or night, no reservation required.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-bg-num">02</span>
+        <span class="svc-icon">🏢</span>
+        <h3>Commercial Waste</h3>
+        <p>Bulk disposal for businesses, restaurants, offices, and retail establishments. Reliable capacity for high-volume commercial loads with minimal wait times.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-bg-num">03</span>
+        <span class="svc-icon">🏗️</span>
+        <h3>Construction Debris</h3>
+        <p>Concrete, drywall, lumber, roofing, tile, and mixed demolition waste. We handle the heavy loads that contractors and renovation crews generate every day.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-bg-num">04</span>
+        <span class="svc-icon">♻️</span>
+        <h3>Recyclable Materials</h3>
+        <p>Metals, cardboard, plastics, and sorted recyclables accepted with responsible diversion from landfill. Helping Queens communities meet sustainability goals.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-bg-num">05</span>
+        <span class="svc-icon">🌿</span>
+        <h3>Yard & Organic Waste</h3>
+        <p>Tree limbs, brush, grass clippings, and organic landscaping debris. Clean drop-off for all seasonal yard waste generated by homeowners and landscapers.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-bg-num">06</span>
+        <span class="svc-icon">🛢️</span>
+        <h3>Industrial & Bulk Loads</h3>
+        <p>Large-scale industrial disposal and roll-off support for warehouses, factories, and large property cleanouts. Call ahead for oversized load accommodations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 24/7 BAND -->
+<div class="band-247">
+  <div class="band-247-inner">
+    <div class="band-247-left">
+      <h2><span>24 Hours.</span><br>7 Days.<br>Always Open.</h2>
+      <p>No other facility in Jamaica keeps its gates open around the clock, every single day of the year.</p>
+    </div>
+    <div class="band-247-right">
+      <a href="tel:7185239330" class="band-phone">
+        <div class="band-phone-icon">♛</div>
+        (718) 523-9330
+      </a>
+      <div class="band-note">Call anytime — we are always here</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY REGAL -->
+<section class="section why-section" id="why">
+  <div class="container">
+    <div class="section-tag">Why Choose Us</div>
+    <h2>The Regal Difference</h2>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">I</div>
+          <div>
+            <h4>Always Open — No Exceptions</h4>
+            <p>Midnight run? Early morning before a job site opens? We're here. Our 24/7 operation means you never have to plan around closing times.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">II</div>
+          <div>
+            <h4>Strategic Jamaica Location</h4>
+            <p>Centrally located on Douglas Ave in Jamaica, Queens — easy access from the Van Wyck, the Belt Parkway, and the entire borough.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">III</div>
+          <div>
+            <h4>Accepts a Wide Range of Materials</h4>
+            <p>From household trash to demolition debris, we accept materials most facilities turn away. One location for all your disposal needs.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">IV</div>
+          <div>
+            <h4>Efficient, High-Volume Operation</h4>
+            <p>Minimal wait times thanks to organized intake and experienced staff. Get in, drop off, and get on with your day — quickly and without hassle.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">V</div>
+          <div>
+            <h4>Trusted by Queens Contractors</h4>
+            <p>Local builders, landscapers, and haulers rely on Regal because we're dependable, capacious, and always ready to receive a load.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-feature-box">
+        <h3>Jamaica's Premier Disposal Facility.</h3>
+        <p>Regal Garbage Dump has earned its name through consistent, dependable service to the Jamaica community and the greater Queens area. We're not just a dump — we're a cornerstone of the local waste management infrastructure, operating without pause so that homes, businesses, and job sites can stay clean and productive.</p>
+        <div class="feature-stats">
+          <div class="feat-stat">
+            <strong>24/7</strong>
+            <span>Always Open</span>
+          </div>
+          <div class="feat-stat">
+            <strong>365</strong>
+            <span>Days a Year</span>
+          </div>
+          <div class="feat-stat">
+            <strong>6+</strong>
+            <span>Waste Categories</span>
+          </div>
+          <div class="feat-stat">
+            <strong>QNS</strong>
+            <span>Queens Based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="section area-section" id="areas">
+  <div class="container">
+    <div class="area-head">
+      <div>
+        <div class="section-tag">Service Area</div>
+        <h2>Serving Greater Queens & Beyond</h2>
+        <div class="gold-rule" style="margin-top:14px;">
+          <div class="gold-rule-line"></div>
+          <div class="gold-rule-dia"></div>
+        </div>
+      </div>
+      <p>Conveniently located in Jamaica, our facility is easily accessible from all corners of Queens, Brooklyn, Nassau County, and surrounding communities. Drive in any time — we're always open.</p>
+    </div>
+    <div class="area-tags">
+      <span class="area-tag primary">♛ Jamaica</span>
+      <span class="area-tag">South Jamaica</span>
+      <span class="area-tag">Hollis</span>
+      <span class="area-tag">Queens Village</span>
+      <span class="area-tag">Springfield Gardens</span>
+      <span class="area-tag">St. Albans</span>
+      <span class="area-tag">Cambria Heights</span>
+      <span class="area-tag">Laurelton</span>
+      <span class="area-tag">Rosedale</span>
+      <span class="area-tag">Richmond Hill</span>
+      <span class="area-tag">Ozone Park</span>
+      <span class="area-tag">Howard Beach</span>
+      <span class="area-tag">JFK Airport Area</span>
+      <span class="area-tag">East New York</span>
+      <span class="area-tag">Elmont</span>
+      <span class="area-tag">Valley Stream</span>
+      <span class="area-tag">Hempstead</span>
+      <span class="area-tag">Nassau County</span>
+      <span class="area-tag">& Surrounding Areas</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-tag">Contact & Info</div>
+    <h2>Visit or Call Anytime</h2>
+    <div class="contact-grid">
+      <div class="contact-panel">
+        <h3>♛ Contact Details</h3>
+        <div class="c-item">
+          <div class="c-icon">📞</div>
+          <div>
+            <strong>Telephone</strong>
+            <a href="tel:7185239330">(718) 523-9330</a>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📍</div>
+          <div>
+            <strong>Address</strong>
+            <span>170-50 Douglas Ave<br>Jamaica, NY 11433</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">🚗</div>
+          <div>
+            <strong>Accessibility</strong>
+            <span>Accessible via Van Wyck Expy, Belt Pkwy & Merrick Blvd</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📦</div>
+          <div>
+            <strong>Accepted Loads</strong>
+            <span>Residential · Commercial · Construction · Recyclables · Organic</span>
+          </div>
+        </div>
+        <a href="tel:7185239330" class="btn-gold" style="margin-top:10px;display:inline-flex;">♛ Call Now</a>
+      </div>
+      <div class="contact-panel">
+        <h3>⏱ Hours of Operation</h3>
+        <table class="hours-table">
+          <tr><td>Monday</td><td class="open-time">Open 24 Hours</td></tr>
+          <tr><td>Tuesday</td><td class="open-time">Open 24 Hours</td></tr>
+          <tr><td>Wednesday</td><td class="open-time">Open 24 Hours</td></tr>
+          <tr><td>Thursday</td><td class="open-time">Open 24 Hours</td></tr>
+          <tr><td>Friday</td><td class="open-time">Open 24 Hours</td></tr>
+          <tr><td>Saturday</td><td class="open-time">Open 24 Hours</td></tr>
+          <tr><td>Sunday</td><td class="open-time">Open 24 Hours</td></tr>
+        </table>
+        <div class="hours-always">
+          <div class="hours-always-icon">♛</div>
+          <div>
+            <strong>Always Open — No Exceptions</strong>
+            <span>365 days a year, including holidays. No appointment required — drive in and drop off at your convenience.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-ornament"></div>
+<footer>
+  <div class="footer-logo">♛ Regal Garbage Dump</div>
+  <p>170-50 Douglas Ave, Jamaica, NY 11433</p>
+  <p><a href="tel:7185239330">(718) 523-9330</a> &nbsp;·&nbsp; Open 24/7 · 365 Days a Year</p>
+  <p>© 2025 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
